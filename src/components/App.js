@@ -23,30 +23,17 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch("https://api.lorem.com/ipsum")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch({
-          type: "FETCH_SUCCESS",
-          payload: [
-            {
-              title: data.title,
-              body: data.body
-            }
-          ]
-        });
-      })
-      .catch(() => {
-        dispatch({
-          type: "FETCH_SUCCESS",
-          payload: [
-            {
-              title: "Lorem Ipsum",
-              body: "Lorem ipsum dolor sit amet"
-            }
-          ]
-        });
+    setTimeout(() => {
+      dispatch({
+        type: "FETCH_SUCCESS",
+        payload: [
+          {
+            title: "Lorem Ipsum",
+            body: "Lorem ipsum dolor sit amet"
+          }
+        ]
       });
+    }, 500);
   }, []);
 
   return (
