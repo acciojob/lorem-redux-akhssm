@@ -13,7 +13,6 @@ function reducer(state, action) {
         loading: false,
         posts: action.payload
       };
-
     default:
       return state;
   }
@@ -33,23 +32,25 @@ const App = () => {
           }
         ]
       });
-    }, 500);
+    }, 1500); 
   }, []);
 
   return (
     <div className="container">
-      <h2>A short Naration of Lorem Ipsum</h2>
+      <h1>A short Naration of Lorem Ipsum</h1>
 
       {state.loading && <h4>Loading...</h4>}
 
-      <ul>
-        {state.posts.map((post, index) => (
-          <li key={index}>
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-          </li>
-        ))}
-      </ul>
+      {!state.loading && (
+        <ul>
+          {state.posts.map((post, index) => (
+            <li key={index}>
+              <h1>{post.title}</h1>
+              <p>{post.body}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
