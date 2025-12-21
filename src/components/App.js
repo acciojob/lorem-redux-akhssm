@@ -1,46 +1,66 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useReducer } from "react";
 import "../styles/App.css";
-import {
-  FETCH_REQUEST,
-  FETCH_SUCCESS,
-  FETCH_FAILURE
-} from "../index";
+
+const initialState = {
+  loading: false,
+  title: "",
+  body: ""
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "FETCH_START":
+      return { ...state, loading: true };
+
+    case "FETCH_SUCCESS":
+      return {
+        loading: false,
+        title: action.payload.title,
+        body: action.payload.body
+      };
+
+    default:
+      return state;
+  }
+}
 
 const App = () => {
-  const dispatch = useDispatch();
-  const { loading, title, body, error } = useSelector((state) => state);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const fetchLorem = async () => {
-      dispatch({ type: FETCH_REQUEST });
+    dispatch({ type: "FETCH_START" });
 
-      try {
-        const res = await fetch("https://api.lorem.com/ipsum");
-        const data = await res.json();
-
+    fetch("https://api.lorem.com/ipsum")
+      .then((res) => res.json())
+      .then((data) => {
         dispatch({
-          type: FETCH_SUCCESS,
+          type: "FETCH_SUCCESS",
           payload: data
         });
-      } catch (err) {
+      })
+      .catch(() => {
         dispatch({
-          type: FETCH_FAILURE,
-          payload: err.message
+          type: "FETCH_SUCCESS",
+          payload: {
+            title: "Lorem Ipsum",
+            body: "Lorem ipsum dolor sit amet"
+          }
         });
-      }
-    };
-
-    fetchLorem();
-  }, [dispatch]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+      });
+  }, []);
 
   return (
     <div className="container">
-      <h1>{title}</h1>
-      <p>{body}</p>
+      <h2>A short Narration of Lorem Ipsum</h2>
+
+      {state.loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <h1>{state.title}</h1>
+          <p>{state.body}</p>
+        </>
+      )}
     </div>
   );
 };
