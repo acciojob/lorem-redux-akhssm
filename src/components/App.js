@@ -51,7 +51,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h2>A short Narration of Lorem Ipsum</h2>
+      <h2>Lorem Ipsum</h2>
 
       {state.loading ? (
         <p>Loading...</p>
