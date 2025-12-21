@@ -1,13 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import App from "./components/App";
 
-/* ---------------- REDUX SETUP ---------------- */
-
-// Initial State
 const initialState = {
   loading: false,
   title: "",
@@ -15,12 +12,10 @@ const initialState = {
   error: ""
 };
 
-// Action Types
 const FETCH_REQUEST = "FETCH_REQUEST";
 const FETCH_SUCCESS = "FETCH_SUCCESS";
 const FETCH_FAILURE = "FETCH_FAILURE";
 
-// Reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_REQUEST:
@@ -47,36 +42,13 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-// Async Action (Thunk)
-export const fetchLorem = () => {
-  return async (dispatch) => {
-    dispatch({ type: FETCH_REQUEST });
-
-    try {
-      const res = await fetch("https://api.lorem.com/ipsum");
-      const data = await res.json();
-
-      dispatch({
-        type: FETCH_SUCCESS,
-        payload: data
-      });
-    } catch (err) {
-      dispatch({
-        type: FETCH_FAILURE,
-        payload: err.message
-      });
-    }
-  };
-};
-
-// Store
 const store = createStore(reducer, applyMiddleware(thunk));
 
-/* ---------------- RENDER ---------------- */
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
+  document.getElementById("root")
 );
+
+export { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE };
