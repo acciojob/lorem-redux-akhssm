@@ -21,7 +21,7 @@ const App = () => {
           <ul>
             <li>
               <span>1</span>
-              <h1 className="title">Title :Loading tiltes</h1>
+              <h1 className="title">A short Naration of Lorem Ipsum</h1>
               <p className="body">Body :Loading Body</p>
             </li>
           </ul>
