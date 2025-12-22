@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Lorem Redux</h1>
+      <h1>A short Naration of Lorem Ipsum</h1>
 
       {loading && <h4>Loading...</h4>}
 
