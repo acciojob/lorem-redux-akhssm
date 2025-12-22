@@ -62,9 +62,9 @@ export const fetchPosts = () => (dispatch) => {
       fetchSuccess([
         {
           id: 1,
-          title: "Title :Loading tiltes",
+          title: "Title :sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
           body:
-            "Body :quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+            "Body :Loading Body"
         }
       ])
     );
