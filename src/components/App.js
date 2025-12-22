@@ -28,6 +28,9 @@
 // export default App;
 
 
+
+
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../redux/actions";
@@ -43,7 +46,6 @@ const App = () => {
 
   return (
     <div>
-      {/* Intro text must ALWAYS render */}
       <h1 className="title">A short Naration of Lorem Ipsum</h1>
 
       <h4>
@@ -51,24 +53,21 @@ const App = () => {
         time to Review
       </h4>
 
-      {/* Loading state */}
       {loading && <p>Loading...</p>}
 
-      {/* Error state */}
       {error && <p>Error: {error}</p>}
 
-      {/* Posts list */}
       <ul>
-        {posts &&
-          posts.map((post) => (
-            <li key={post.id}>
-              <h2 className="title">{post.title}</h2>
-              <p className="body">{post.body}</p>
-            </li>
-          ))}
+        {posts.map((post) => (
+          <li key={post.id}>
+            <h2 className="title">{post.title}</h2>
+            <p className="body">{post.body}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
 
 export default App;
+
