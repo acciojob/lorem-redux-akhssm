@@ -8,7 +8,7 @@ export const fetchPosts = () => {
         payload: [
           {
             title:
-              "A short Naration of Lorem Ipsum",
+              "Title :Loading tiltes",
             body:
               "Body :Loading Body"
           }
