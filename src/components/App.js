@@ -11,6 +11,8 @@ const App = () => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
+  if(loading) return <p>Loading...</p>
+
   return (
     <div className="container">
        <h1 className="title">A short Naration of Lorem Ipsum</h1>
@@ -41,13 +43,12 @@ const App = () => {
       )} */}
 
       <ul>
-          {posts.map((post, index) => (
-            <li key={index}>
-              <span>{index + 1}</span>
-              <h1 className="title">{post.title}</h1>
-              <p className="body">{post.body}</p>
+        
+            <li >
+              <h2>{posts[0].title}</h2>
+              <p>{posts[0].body}</p>
             </li>
-          ))}
+      
         </ul>
     </div>
   );
