@@ -4,7 +4,7 @@ const initialState = {
   error: null
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_START":
       return { ...state, loading: true, error:null };
@@ -23,3 +23,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;
