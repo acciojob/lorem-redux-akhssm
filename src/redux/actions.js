@@ -8,19 +8,19 @@ export const fetchPosts = () => {
         payload: [
           {
             title:
-              "Title :Loading tiltes",
+              "Title :sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body:
               "Body :Loading Body"
           },
           {
             title:
-              "Title :Loading tiltes",
+              "Title :sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body:
               "Body :Loading Body"
           },
           {
             title:
-              "Title :Loading tiltes",
+              "Title :sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body:
               "Body :Loading Body"
           }
