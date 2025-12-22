@@ -52,11 +52,8 @@ const App = () => {
         Below Contains A title and Body gotten from a random API, Please take your
         time to Review
       </h4>
-
       {loading && <p>Loading...</p>}
-
       {error && <p>Error: {error}</p>}
-
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
@@ -70,4 +67,3 @@ const App = () => {
 };
 
 export default App;
-
