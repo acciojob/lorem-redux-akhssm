@@ -45,8 +45,8 @@ const App = () => {
       <ul>
         
             <li >
-              <h2>{posts[0].title}</h2>
-              <p>{posts[0].body}</p>
+              <h2 className="title">{posts[0].title}</h2>
+              <p className="body">{posts[0].body}</p>
             </li>
       
         </ul>
