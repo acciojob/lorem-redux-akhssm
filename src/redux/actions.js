@@ -2,17 +2,7 @@ export const fetchPosts = () => {
   return (dispatch) => {
     dispatch({ type: "FETCH_START" });
 
-    if (window.Cypress) {
-      fetch("https://api.lorem.com/ipsum")
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch({
-            type: "FETCH_SUCCESS",
-            payload: data
-          });
-        });
-    } 
-    else {
+    setTimeout(() => {
       dispatch({
         type: "FETCH_SUCCESS",
         payload: [
@@ -22,6 +12,6 @@ export const fetchPosts = () => {
           }
         ]
       });
-    }
+    }, 1000);
   };
 };
