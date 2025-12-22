@@ -7,7 +7,7 @@ export const fetchPosts = () => {
         type: "FETCH_SUCCESS",
         payload: [
           {
-            title: "Title :sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+            title: "A short Naration of Lorem Ipsum",
             body: "Body :quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
           }
         ]
