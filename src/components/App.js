@@ -48,10 +48,7 @@ const App = () => {
     <div>
       <h1 className="title">A short Naration of Lorem Ipsum</h1>
 
-      <h4>
-        Below Contains A title and Body gotten from a random API, Please take your
-        time to Review
-      </h4>
+      <h4>Below Contains A title and Body gotten froma random API, Please take your time to Review</h4>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       <ul>
