@@ -1,12 +1,13 @@
 const initialState = {
   loading: true,
-  posts: []
+  posts: null, 
+  error: null
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_START":
-      return { ...state, loading: true };
+      return { ...state, loading: true, error:null };
 
     case "FETCH_SUCCESS":
       return {
@@ -16,7 +17,7 @@ export const reducer = (state = initialState, action) => {
       };
 
     case "FETCH_ERROR":
-      return { ...state, loading: false };
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

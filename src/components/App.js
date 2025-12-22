@@ -5,18 +5,19 @@ import "../styles/App.css";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { loading, posts } = useSelector((state) => state);
+  const { loading, posts, error } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
   if(loading) return <p>Loading...</p>
+  if(error) return <p>Error: {error}</p>
 
   return (
-    <div className="container">
-       <h1 className="title">A short Naration of Lorem Ipsum</h1>
-      <h4>Below Contains A title and Body gotten froma random API, Please take your time to Review</h4>
+    <div >
+       {/* <h1 className="title">A short Naration of Lorem Ipsum</h1>
+      <h4>Below Contains A title and Body gotten froma random API, Please take your time to Review</h4> */}
 
       {/* {loading && (
         <>
@@ -42,14 +43,14 @@ const App = () => {
         </ul>
       )} */}
 
-      <ul>
+      {/* <ul> */}
         
-            <li >
+            {/* <li > */}
               <h2 className="title">{posts[0].title}</h2>
               <p className="body">{posts[0].body}</p>
-            </li>
+            {/* </li> */}
       
-        </ul>
+        {/* </ul> */}
     </div>
   );
 };
