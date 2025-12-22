@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h4>Lorem Redux</h4>
+      <h4>Below Contains A title and Body gotten froma random API, Please take your time to Review</h4>
 
       {loading && <h4>Loading...</h4>}
 
