@@ -1,51 +1,27 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../redux/actions";
 import "../styles/App.css";
 
-const initialState = {
-  loading: true,
-  posts: []
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "FETCH_SUCCESS":
-      return {
-        loading: false,
-        posts: action.payload
-      };
-    default:
-      return state;
-  }
-}
-
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const dispatch = useDispatch();
+  const { loading, posts } = useSelector((state) => state);
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch({
-        type: "FETCH_SUCCESS",
-        payload: [
-          {
-            title: "Lorem Ipsum",
-            body: "Lorem ipsum dolor sit amet"
-          }
-        ]
-      });
-    }, 1500); 
-  }, []);
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   return (
     <div className="container">
-      <h1>A short Naration of Lorem Ipsum</h1>
+      <h4>Lorem Redux</h4>
 
-      {state.loading && <h4>Loading...</h4>}
+      {loading && <h4>Loading...</h4>}
 
-      {!state.loading && (
+      {!loading && (
         <ul>
-          {state.posts.map((post, index) => (
+          {posts.map((post, index) => (
             <li key={index}>
-              <h1>{post.title}</h1>
+              <h3 className="title">{post.title}</h3>
               <p>{post.body}</p>
             </li>
           ))}
