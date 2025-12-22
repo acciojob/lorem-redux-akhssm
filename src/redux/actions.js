@@ -11,6 +11,18 @@ export const fetchPosts = () => {
               "Title :Loading tiltes",
             body:
               "Body :Loading Body"
+          },
+          {
+            title:
+              "Title :Loading tiltes",
+            body:
+              "Body :Loading Body"
+          },
+          {
+            title:
+              "Title :Loading tiltes",
+            body:
+              "Body :Loading Body"
           }
         ]
       });

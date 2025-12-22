@@ -10,6 +10,7 @@ export const reducer = (state = initialState, action) => {
 
     case "FETCH_SUCCESS":
       return {
+        ...state,
         loading: false,
         posts: action.payload
       };
