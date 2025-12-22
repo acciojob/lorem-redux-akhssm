@@ -64,7 +64,7 @@ export const fetchPosts = () => (dispatch) => {
           id: 1,
           title: "Title :Loading tiltes",
           body:
-            "'Body :quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+            "Body :quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         }
       ])
     );
