@@ -15,9 +15,15 @@ const App = () => {
     <div>
       <h1 className="title">A short Naration of Lorem Ipsum</h1>
 
-      <h4>Below Contains A title and Body gotten froma random API, Please take your time to Review</h4>
-      {loading && <p>Loading...</p>}
+      {!loading && <h4>Below Contains A title and Body gotten froma random API, Please take your time to Review</h4>}
+
+      {loading &&  <li >
+            <h2 className="title">Title :Loading titles</h2>
+            <p className="body">Body :Loading Body</p>
+          </li>}
+
       {error && <p>Error: {error}</p>}
+      
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
