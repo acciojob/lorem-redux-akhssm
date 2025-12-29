@@ -26,7 +26,7 @@ export const fetchPosts = () =>  (dispatch) => {
         }
       ])
     );
-  }, 1000));
+  }, 600));
  
 };
 
